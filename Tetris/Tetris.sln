@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29503.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game", "Game\Game.csproj", "{1F292291-A227-43C8-A92A-C8B234610170}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Game", "Game\Game.csproj", "{1F292291-A227-43C8-A92A-C8B234610170}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Front", "Front\Front.csproj", "{F475DC9D-D882-4D97-BB8C-AA32980A0BCB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{1F292291-A227-43C8-A92A-C8B234610170}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F292291-A227-43C8-A92A-C8B234610170}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F292291-A227-43C8-A92A-C8B234610170}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F475DC9D-D882-4D97-BB8C-AA32980A0BCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F475DC9D-D882-4D97-BB8C-AA32980A0BCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F475DC9D-D882-4D97-BB8C-AA32980A0BCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F475DC9D-D882-4D97-BB8C-AA32980A0BCB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
