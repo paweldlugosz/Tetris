@@ -7,25 +7,24 @@ namespace Game
     public class Point
     {
         private int previousX, previousY;
+        private int x, y;
         public int X
         {
-            get => X;
+            get => x;
             set
             {
-                previousX = X;
-                previousY = Y;
-                X = value;
+                previousX = x;
+                x = value;
             }
         }
 
         public int Y
         {
-            get => Y;
+            get => y;
             set
             {
-                previousX = X;
-                previousY = Y;
-                Y = value;
+                previousY = y;
+                y = value;
             }
         }
 
@@ -33,19 +32,24 @@ namespace Game
         {
             previousX = 0;
             previousY = 0;
-            X = x;
-            Y = y;
+            this.x = x;
+            this.y = y;
         }
 
         public void undo()
         {
-            X = previousX;
-            Y = previousY;
+            x = previousX;
+            y = previousY;
         }
 
         public Point getPreviousPosition()
         {
             return new Point(previousX, previousY);
+        }
+
+        public Point Clone()
+        {
+            return new Point(x, y);
         }
     }
 }

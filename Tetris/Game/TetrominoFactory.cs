@@ -68,7 +68,13 @@ namespace Game
         {
             int index = random.Next(0, tetrominos.Length);
             int color = random.Next(0, tetrominos.Length);
-            return new Tetromino(tetrominos[index], colors[color]);
+            Point[] tetrominoArray = tetrominos[index];
+            Point[] newTetromionoArray = new Point[tetrominoArray.Length];
+            for (int i = 0; i < newTetromionoArray.Length; i++)
+            {
+                newTetromionoArray[i] = tetrominoArray[i].Clone();
+            }
+            return new Tetromino(newTetromionoArray, colors[color]);
         }
     }
 }

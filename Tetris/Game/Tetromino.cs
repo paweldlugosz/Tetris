@@ -18,21 +18,6 @@ namespace Game
             this.color = color;
         }
 
-        /**private void setOrigin()
-        {
-            int maxX = int.MaxValue;
-            int maxY = int.MaxValue;
-
-            foreach (Point point in points)
-            {
-                maxX = Math.Max(maxX, point.X);
-                maxY = Math.Max(maxY, point.Y);
-            }
-
-            originX = maxX / 2f;
-            originY = maxY / 2f;
-        }**/
-
         public void offset(int x, int y)
         {
             for (int i = 0; i < Points.Length; i++)
@@ -48,11 +33,10 @@ namespace Game
             foreach (Point point in Points) point.undo();
         }
 
-        public void rotate()
+        public void Rotate()
         {
-            for (int i = 0; i < Points.Length; i++)
+            foreach (Point point in Points)
             {
-                Point point = Points[i];
                 int tempX = point.X;
                 point.X = point.Y - origin.X + origin.Y;
                 point.Y = origin.X - (tempX - origin.Y);
@@ -73,9 +57,9 @@ namespace Game
         {
             foreach (Point point in Points)
             {
-                if (point.X >= maxX || point.X < 0 || point.Y >= maxY) return false;
+                if (point.X > maxX - 1 || point.X < 0 || point.Y > maxY - 1) return true;
             }
-            return true;
+            return false;
         }
     }
 

@@ -6,7 +6,7 @@ namespace Game
 {
     public interface TetrisEvent
     {
-        void onBlockChange(Field[,] board);
+        void onBlockChange();
 
         void onPointsChange(int lines, int tetris);
 
