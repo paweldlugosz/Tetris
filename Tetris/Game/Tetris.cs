@@ -133,7 +133,7 @@ namespace Game
         public void rotate()
         {
             activeTetromino.Rotate();
-            if (collision()) drawTetrominoOnBoard();
+            if (!collision()) drawTetrominoOnBoard();
             else activeTetromino.undo();
             
         }

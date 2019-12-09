@@ -35,11 +35,15 @@ namespace Game
 
         public void Rotate()
         {
+            Point pivot = Points[1];
+
             foreach (Point point in Points)
             {
-                int tempX = point.X;
-                point.X = point.Y - origin.X + origin.Y;
-                point.Y = origin.X - (tempX - origin.Y);
+                int x = point.X - pivot.X;
+                int y = point.Y - pivot.Y;
+
+                point.X = pivot.X - y;
+                point.Y = pivot.Y + x;
             }
         }
 
