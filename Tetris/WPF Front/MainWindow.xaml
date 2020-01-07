@@ -5,19 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Front"
         mc:Ignorable="d"
-        Title="MainWindow" SizeToContent="WidthAndHeight"  MinHeight="600" MinWidth="450">
-    <Window.Background>
-        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-            <GradientStop Color="#000" Offset="0"/>
-            <GradientStop Color="#000" Offset="1"/>
-        </LinearGradientBrush>
-    </Window.Background>
+        Title="MainWindow" SizeToContent="WidthAndHeight"  MinHeight="600" MinWidth="450"
+        Background="#c7c7c7"
+        >
+
     <Grid x:Name="grid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="301*"/>
             <ColumnDefinition Width="160*"/>
         </Grid.ColumnDefinitions>
-        <Grid ShowGridLines="True" x:Name="tetrisGrid" Margin="28,17,0,0" Panel.ZIndex="2" Height="500" Width="250" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Black">
+        <Grid ShowGridLines="True" x:Name="tetrisGrid" Margin="28,17,0,0" Panel.ZIndex="2" Height="500" Width="250" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#f0f0f0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="25"/>
@@ -52,12 +49,11 @@
                 <ColumnDefinition Width="25"/>
                 <ColumnDefinition Width="25"/>
             </Grid.ColumnDefinitions>
-
         </Grid>
-        <Button x:Name="startBtn" Content="Start Game" HorizontalAlignment="Left" Margin="31,17,0,0" VerticalAlignment="Top" Width="93"  Height="50" Grid.Column="1"/>
-        <Button x:Name="resetBtn" Content="Reset Game" HorizontalAlignment="Left" Margin="31,94,0,0" VerticalAlignment="Top" Width="93"  Height="50" Grid.Column="1"/>
-        <Rectangle x:Name="back" HorizontalAlignment="Left" Height="505" Margin="26,15,0,0" VerticalAlignment="Top" Width="254" Fill="White"/>
-        <TextBlock HorizontalAlignment="Left" Margin="40,331,0,0" TextWrapping="Wrap" Text="Score" VerticalAlignment="Top" Height="35" Width="81" Foreground="#FFFFF161" FontSize="24"  TextAlignment="Center" Background="Black" Grid.Column="1"/>
-        <TextBlock x:Name="scoreTxt" HorizontalAlignment="Left" Margin="64,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Width="31" Foreground="#FFFFF161" FontSize="24"  TextAlignment="Center" Background="Black" Text="0" Grid.Column="1"/>
+        <Button x:Name="startBtn" Click="StartBtn_Click" Content="Start Game" BorderBrush="#999999" BorderThickness="2" HorizontalAlignment="Left" Margin="31,17,0,0" VerticalAlignment="Top" Width="93"  Height="50" Grid.Column="1"/>
+        <Button x:Name="resetBtn" Click="ResetBtn_Click"  Content="Reset Game" BorderBrush="#999999" BorderThickness="2" HorizontalAlignment="Left" Margin="31,94,0,0" VerticalAlignment="Top" Width="93"  Height="50" Grid.Column="1"/>
+        <Rectangle x:Name="back" HorizontalAlignment="Left" Height="505" Margin="26,15,0,0" VerticalAlignment="Top" Width="254" Fill="#999999"/>
+        <TextBlock HorizontalAlignment="Left" Margin="31,182,0,0" FontWeight="DemiBold" TextWrapping="Wrap" Text="Score" VerticalAlignment="Top" Height="35" Width="93" Foreground="#6ba4cf" FontSize="24"  TextAlignment="Center" Background="#c7c7c7" Grid.Column="1"/>
+        <TextBlock x:Name="scoreTxt" HorizontalAlignment="Left" Margin="64,222,0,0" FontWeight="DemiBold" TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Width="31" Foreground="Black" FontSize="24"  TextAlignment="Center" Background="#c7c7c7" Text="0" Grid.Column="1" RenderTransformOrigin="-0.364,0.314"/>
     </Grid>
 </Window>
