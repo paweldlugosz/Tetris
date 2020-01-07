@@ -35,7 +35,7 @@ namespace WPF_Front
 
         private void StartBtn_Click(object sender, RoutedEventArgs e)
         {
-            //game.Focus(); 
+            game.Focus(); 
             System.Windows.Controls.Button btn = (System.Windows.Controls.Button)sender;
 
             if (btn.Content.ToString() == "Start Game")
