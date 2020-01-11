@@ -84,17 +84,17 @@ namespace Game
 
         public void moveLeft()
         {
-            movement(-1, 0);
+            if (Running) movement(-1, 0);
         }
 
         public void moveRight()
         {
-            movement(1, 0);
+            if (Running) movement(1, 0);
         }
 
         public void moveDown()
         {
-            movement(0, 1);
+            if (Running) movement(0, 1);
         }
 
         public void flor()
@@ -132,6 +132,7 @@ namespace Game
 
         public void rotate()
         {
+            if (!Running) return;
             activeTetromino.Rotate();
             if (!collision()) drawTetrominoOnBoard();
             else activeTetromino.undo();

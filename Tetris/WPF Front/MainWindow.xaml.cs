@@ -1,20 +1,10 @@
 ﻿using System;
 using Game;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Drawing;
-using System.Windows.Forms;
+using System.Windows.Media;
 
 namespace WPF_Front
 {
@@ -24,53 +14,69 @@ namespace WPF_Front
     public partial class MainWindow : Window
     {
         public Tetris tetris;
-        private SolidBrush brush;
         public MainWindow()
         {
             InitializeComponent();
-            //this.KeyPreview = true;
             tetris = new Tetris(10, 20, new TetrisEventImp(this));
-            //brush = new SolidBrush(Color.Gray);
+            this.KeyDown += new KeyEventHandler(MainWindow_KeyDown);
+        }
+
+        void MainWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Key.A: tetris.moveLeft(); break;
+                case Key.D: tetris.moveRight(); break;
+                case Key.S: tetris.moveDown(); break;
+                case Key.W: tetris.rotate(); break;
+                case Key.M: tetris.flor(); break;
+            }
         }
 
         private void StartBtn_Click(object sender, RoutedEventArgs e)
         {
             game.Focus(); 
-            System.Windows.Controls.Button btn = (System.Windows.Controls.Button)sender;
+            Button btn = (Button)sender;
 
-            if (btn.Content.ToString() == "Start Game")
+            if (tetris.Running)
             {
-                //do smth when Start Game button is pressed
-                tetris.start();
-                btn.Content = "Pause Game";
-
+                tetris.pause();
+                btn.Content = "Start Game";
             }
             else
             {
-                //do smth when Pause Game button is pressed
-                tetris.pause();
-                btn.Content = "Start Game";
+                tetris.start();
+                btn.Content = "Pause Game";
             }
 
         }
 
         private void ResetBtn_Click(object sender, RoutedEventArgs e)
         {
-            //do smth when Reset Game button is pressed
             tetris.setUp();
             startBtn.Content = "Start Game";
         }
 
-        private void game_Paint(object sender, PaintEventArgs e)
+        private void render()
         {
-            int rectSize = 30;
+            if (tetris == null) return;
+
+            game.Children.Clear();
+
             for (int x = 0; x < tetris.Width; x++)
             {
                 for (int y = 0; y < tetris.Height; y++)
                 {
                     Field field = tetris.Board[x, y];
-                    brush.Color = field.Color;
-                    e.Graphics.FillRectangle(brush, x * rectSize, y * rectSize, rectSize, rectSize);
+                    if (field.Color == System.Drawing.Color.Transparent) continue;
+
+                    int rectSize = 30;
+                    Rectangle rect = new Rectangle();
+                    rect.Fill = new SolidColorBrush(Color.FromRgb(field.Color.R, field.Color.G, field.Color.B));
+                    rect.Width = rect.Height = rectSize;
+                    Canvas.SetLeft(rect, rectSize * x);
+                    Canvas.SetTop(rect, rectSize * y);
+                    game.Children.Add(rect);
                 }
             }
         }
@@ -86,31 +92,24 @@ namespace WPF_Front
 
             public void onBlockChange()
             {
-                //mainWindow.game.Invalidate();
+                mainWindow.game.Dispatcher.Invoke(new Action(() =>
+                {
+                    mainWindow.render();
+                }));
             }
 
             public void onGameOver()
             {
-                System.Windows.MessageBox.Show("Przegrana");
+                MessageBox.Show("Przegrana");
             }
 
             public void onPointsChange(int points, int tetris)
             {
-                //gameView.lines.Text = points.ToString();
+                mainWindow.scoreTxt.Dispatcher.Invoke(new Action(() =>
+                {
+                    mainWindow.scoreTxt.Text = ((tetris * 4 + points) * 100).ToString();
+                }));
             }
-        }
-
-        private void GameView_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
-        {
-            switch (e.KeyCode)
-            {
-                case Keys.A: tetris.moveLeft(); break;
-                case Keys.D: tetris.moveRight(); break;
-                case Keys.S: tetris.moveDown(); break;
-                case Keys.W: tetris.rotate(); break;
-                case Keys.Space: tetris.flor(); break;
-            }
-
         }
     }
 }

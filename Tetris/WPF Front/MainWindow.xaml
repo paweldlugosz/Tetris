@@ -5,19 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Front"
         mc:Ignorable="d"
+        ResizeMode="NoResize"
         Title="MainWindow" SizeToContent="WidthAndHeight"  MinHeight="600" MinWidth="450"
-        Background="#c7c7c7"
+        Background="#c7c7c7" Width="465" Height="660"
         >
 
-    <Grid x:Name="grid">
+    <Grid x:Name="grid" Width="465" Height="630" HorizontalAlignment="Left">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="301*"/>
-            <ColumnDefinition Width="160*"/>
+            <ColumnDefinition Width="315"/>
+            <ColumnDefinition Width="150"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="startBtn" Click="StartBtn_Click" Content="Start Game" BorderBrush="#999999" BorderThickness="2" HorizontalAlignment="Left" Margin="31,17,0,0" VerticalAlignment="Top" Width="93"  Height="50" Grid.Column="1"/>
-        <Button x:Name="resetBtn" Click="ResetBtn_Click"  Content="Reset Game" BorderBrush="#999999" BorderThickness="2" HorizontalAlignment="Left" Margin="31,94,0,0" VerticalAlignment="Top" Width="93"  Height="50" Grid.Column="1"/>
-        <Canvas x:Name="game" HorizontalAlignment="Left" Background="#999999" Height="505" Margin="26,15,0,0" VerticalAlignment="Top" Width="254"/>
-        <TextBlock HorizontalAlignment="Left" Margin="31,182,0,0" FontWeight="DemiBold" TextWrapping="Wrap" Text="Score" VerticalAlignment="Top" Height="35" Width="93" Foreground="#6ba4cf" FontSize="24"  TextAlignment="Center" Background="#c7c7c7" Grid.Column="1"/>
-        <TextBlock x:Name="scoreTxt" HorizontalAlignment="Left" Margin="64,222,0,0" FontWeight="DemiBold" TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Width="31" Foreground="Black" FontSize="24"  TextAlignment="Center" Background="#c7c7c7" Text="0" Grid.Column="1" RenderTransformOrigin="-0.364,0.314"/>
+        <Button x:Name="startBtn" Click="StartBtn_Click" Content="Start Game" BorderBrush="#999999" BorderThickness="2" Margin="15,15,15,0" Grid.Column="2" Height="50" VerticalAlignment="Top" RenderTransformOrigin="0.501,1.108"/>
+        <Button x:Name="resetBtn" Click="ResetBtn_Click"  Content="Reset Game" BorderBrush="#999999" BorderThickness="2" Margin="15,75,15,0" VerticalAlignment="Top"  Height="50" Grid.Column="2"/>
+        <Canvas x:Name="game" Background="#999999" Margin="15,15,0,15" Grid.RowSpan="2"/>
+        <TextBlock Margin="15,182,15,0" FontWeight="DemiBold" TextWrapping="Wrap" Text="Score" VerticalAlignment="Top" Height="35" Foreground="#6ba4cf" FontSize="24"  TextAlignment="Center" Background="#c7c7c7" Grid.Column="2"/>
+        <TextBlock x:Name="scoreTxt" Margin="15,222,15,0" FontWeight="DemiBold" TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Foreground="Black" FontSize="24"  TextAlignment="Center" Background="#c7c7c7" Text="0" Grid.Column="2" RenderTransformOrigin="-0.364,0.314"/>
     </Grid>
 </Window>
