@@ -14,7 +14,7 @@ namespace Front
     public partial class GameView : Form
     {
         public Tetris tetris;
-        private SolidBrush brush;
+        public SolidBrush brush;
 
         public GameView()
         {
@@ -24,7 +24,7 @@ namespace Front
             brush = new SolidBrush(Color.Gray);
         }
 
-        private void startPause_Click(object sender, EventArgs e)
+        public void startPause_Click(object sender, EventArgs e)
         {
             game.Focus();
             if (tetris.Running)
@@ -39,7 +39,7 @@ namespace Front
             }
         }
 
-        private void game_Paint(object sender, PaintEventArgs e)
+        public void game_Paint(object sender, PaintEventArgs e)
         {
             int rectSize = 30;
             for (int x = 0; x < tetris.Width; x++)
@@ -53,7 +53,7 @@ namespace Front
             }
         }
 
-        class TetrisEventImp : TetrisEvent
+        public class TetrisEventImp : TetrisEvent
         {
             GameView gameView;
 
@@ -78,13 +78,13 @@ namespace Front
             }
         }
 
-        private void reset_Click(object sender, EventArgs e)
+        public void reset_Click(object sender, EventArgs e)
         {
             tetris.setUp();
             startPause.Text = "Start";
         }
 
-        private void GameView_KeyDown(object sender, KeyEventArgs e)
+        public void GameView_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {

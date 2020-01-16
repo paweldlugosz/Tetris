@@ -92,10 +92,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel game;
-        private System.Windows.Forms.Button startPause;
-        private System.Windows.Forms.Button reset;
-        private System.Windows.Forms.Label lines;
+        public System.Windows.Forms.Panel game;
+        public System.Windows.Forms.Button startPause;
+        public System.Windows.Forms.Button reset;
+        public System.Windows.Forms.Label lines;
     }
 }
 
