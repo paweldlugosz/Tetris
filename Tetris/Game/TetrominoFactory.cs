@@ -3,9 +3,18 @@ using System.Drawing;
 
 namespace Game
 {
+    /// <summary>
+    /// Class generating pseudo-randomness of numbers -> blocks.
+    /// A class containing the definition of blocks used in the game, the definition of colors and a randomization mechanism.
+
+    /// </summary>
     static class TetrominoFactory
     {
         private static Random random = new Random();
+
+        /// <summary>
+        /// Definition of each blocks.
+        /// </summary>
         private static Point[][] tetrominos = new Point[][] 
         {
             new Point [] {
@@ -52,6 +61,9 @@ namespace Game
             }
         };
 
+        /// <summary> 
+        /// Definition of block colors used in the application.
+        /// </summary>
         private static Color[] colors = new Color[]
         {
             Color.FromArgb(219, 86, 86),
@@ -64,6 +76,10 @@ namespace Game
 
         };
 
+        /// <summary>
+        /// Definition of creating a new block. 
+        /// Returned is an array with the points of the block (the points from which the blocks are built) and its color.
+        /// </summary> 
         public static Tetromino getNewRandomTetromino()
         {
             int index = random.Next(0, tetrominos.Length);
