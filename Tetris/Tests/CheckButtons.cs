@@ -7,12 +7,11 @@ namespace Tests
     [TestClass]
     public class CheckButtons
     {
-        private readonly GameView game = new GameView();
-
+        private readonly GameView game = new GameView();        
         /// <summary>
         /// Check if text on button is "Start" when the game is not running
         /// </summary>
-        [TestMethod]
+       
         public void CheckTextOnButtonWhenGameIsNotStarted()
         {
             string textOnButton = game.startPause.Text;

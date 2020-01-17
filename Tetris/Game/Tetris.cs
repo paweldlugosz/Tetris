@@ -9,7 +9,7 @@ namespace Game
     {
         public readonly int Width, Height;
         public Field[,] Board;
-        private Tetromino activeTetromino;
+        public Tetromino activeTetromino;
         private System.Timers.Timer timer;
         private bool newGame;
         private TetrisEvent tetrisEvent;

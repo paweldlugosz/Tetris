@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="CheckButtons.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CheckMovement.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

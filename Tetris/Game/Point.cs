@@ -6,8 +6,8 @@ namespace Game
 {
     public class Point
     {
-        private int previousX, previousY;
-        private int x, y;
+        public int previousX, previousY;
+        public int x, y;
         public int X
         {
             get => x;
