@@ -3,7 +3,9 @@ using Front;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests
-{
+{  /// <summary>
+   /// Summary description for CheckMovement
+   /// </summary>
     [TestClass]
     public class CheckMovement
     {
@@ -23,10 +25,7 @@ namespace Tests
 
             var point = game.tetris.activeTetromino.Points[1];
 
-            if (point.x == point.previousX - 1)
-                Assert.IsTrue(true);
-            else
-                throw new Exception("Error, Something was wrong. \nActual X:" + point.x + "\nPrevious X:" + point.previousX);
+            Assert.AreEqual(point.x, point.previousX - 1);
         }
 
         /// <summary>
@@ -43,10 +42,7 @@ namespace Tests
 
             var point = game.tetris.activeTetromino.Points[1];
 
-            if (point.x == point.previousX + 1)
-                Assert.IsTrue(true);
-            else
-                throw new Exception("Error, Something was wrong. \nActual X:" + point.x + "\nPrevious X:" + point.previousX);
+            Assert.AreEqual(point.x, point.previousX + 1);
         }
 
         /// <summary>
@@ -63,10 +59,7 @@ namespace Tests
 
             var point = game.tetris.activeTetromino.Points[1];
 
-            if (point.y == point.previousY + 1)
-                Assert.IsTrue(true);
-            else
-                throw new Exception("Error, Something was wrong. \nActual X:" + point.y + "\nPrevious X:" + point.previousY);
+            Assert.AreEqual(point.y, point.previousY + 1);
         }
 
         /// <summary>
@@ -84,10 +77,33 @@ namespace Tests
             var pointActual = game.tetris.activeTetromino.Points[1];
             var pointPrevious = game.tetris.activeTetromino.Points[1].getPreviousPosition();
 
-            if (pointActual.y == (pointPrevious.y + 1))
-                Assert.IsTrue(true);
-            else
-                throw new Exception("Error, Something was wrong. \nPrevious Y: " + pointPrevious.y + ", actual Y: " + pointActual.y);
+            Assert.AreEqual(pointActual.y, pointPrevious.y + 1);
+        }
+
+        /// <summary>
+        /// Check points when block will be rotated
+        /// Method: rotate();
+        /// </summary>
+        [TestMethod]
+        public void CheckBlockRotate()
+        {
+            object sender = game.startPause.Text;
+            game.startPause_Click(sender, EventArgs.Empty);
+
+            var lenght = game.tetris.activeTetromino.Points.Length;
+            var pivot = game.tetris.activeTetromino.Points[1];
+            Game.Point[] point = game.tetris.activeTetromino.Points;
+
+            for (int i = 0; i < lenght; i++)
+            {
+                int x = point[i].x - pivot.x;
+                int y = point[i].y - pivot.y;
+
+                game.tetris.rotate();
+
+                Assert.AreEqual(point[i].x, pivot.x - y);
+                Assert.AreEqual(point[i].y, pivot.y + x);
+            }
         }
     }
 }
