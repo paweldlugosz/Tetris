@@ -11,7 +11,7 @@ namespace Game
         public Field[,] Board;
         public Tetromino activeTetromino;
         private System.Timers.Timer timer;
-        private bool newGame;
+        private bool newGame, gameOver;
         private TetrisEvent tetrisEvent;
         private int dl, tc;
         public int DeletedLines
@@ -57,7 +57,7 @@ namespace Game
                 setNewActiveTetromino();
                 tetrisEvent.onBlockChange();
             }
-            timer.Enabled = true;
+            if (!gameOver) timer.Enabled = true;
         }
 
         public void pause()
@@ -68,6 +68,7 @@ namespace Game
         public void setUp()
         {
             newGame = true;
+            gameOver = false;
             DeletedLines = 0;
             TetrisCounter = 0;
             Board = new Field[Width, Height];
@@ -233,6 +234,7 @@ namespace Game
             else
             {
                 timer.Enabled = false;
+                gameOver = true;
                 tetrisEvent.onGameOver();
             }
         }
