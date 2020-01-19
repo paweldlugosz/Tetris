@@ -17,7 +17,7 @@ Projekt semestralny na studia <br>
 	<td>Lewo</td>	<td>D</td>
 </tr>
  <tr>
-	<td>Obrut</td>	<td>W</td>
+	<td>Obrót</td>	<td>W</td>
 </tr>
 <tr>
 	<td>Przyspieszenie opdającego klocka</td>	<td>S</td>
