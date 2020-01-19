@@ -20,7 +20,7 @@ Projekt semestralny na studia <br>
 	<td>Obrót</td>	<td>W</td>
 </tr>
 <tr>
-	<td>Przyspieszenie opdającego klocka</td>	<td>S</td>
+	<td>Przyspieszenie opadającego klocka</td>	<td>S</td>
 </tr>
  <tr>
 	<td>Wstrzymanie gry </td>	<td>Spacja/Enter</td>
