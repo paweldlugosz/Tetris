@@ -1,4 +1,5 @@
 ﻿using System;
+using Game;
 using Front;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -10,7 +11,7 @@ namespace Tests
     public class CheckMovement
     {
         private readonly GameView game = new GameView();
-
+        private readonly Field field = new Field();
         /// <summary>
         /// Check if block move left when i press "A" button
         /// Method: moveLeft()
@@ -18,9 +19,8 @@ namespace Tests
         [TestMethod]
         public void CheckIfBlockMovingLeft()
         {
-            object sender = game.startPause.Text;
 
-            game.startPause_Click(sender, EventArgs.Empty);
+            game.startPause_Click(null, EventArgs.Empty);
             game.tetris.moveLeft();
 
             var point = game.tetris.activeTetromino.Points[1];
@@ -35,9 +35,8 @@ namespace Tests
         [TestMethod]
         public void CheckIfBlockMovingRight()
         {
-            object sender = game.startPause.Text;
-
-            game.startPause_Click(sender, EventArgs.Empty);
+           
+            game.startPause_Click(null, EventArgs.Empty);
             game.tetris.moveRight();
 
             var point = game.tetris.activeTetromino.Points[1];
@@ -52,9 +51,8 @@ namespace Tests
         [TestMethod]
         public void CheckIfBlockMovingDown()
         {
-            object sender = game.startPause.Text;
-
-            game.startPause_Click(sender, EventArgs.Empty);
+          
+            game.startPause_Click(null, EventArgs.Empty);
             game.tetris.moveDown();
 
             var point = game.tetris.activeTetromino.Points[1];
@@ -69,9 +67,7 @@ namespace Tests
         [TestMethod]
         public void CheckPreviousPosition()
         {
-            object sender = game.startPause.Text;
-
-            game.startPause_Click(sender, EventArgs.Empty);
+            game.startPause_Click(null, EventArgs.Empty);
             System.Threading.Thread.Sleep(800);
 
             var pointActual = game.tetris.activeTetromino.Points[1];
@@ -86,9 +82,8 @@ namespace Tests
         /// </summary>
         [TestMethod]
         public void CheckBlockRotate()
-        {
-            object sender = game.startPause.Text;
-            game.startPause_Click(sender, EventArgs.Empty);
+        { 
+            game.startPause_Click(null, EventArgs.Empty);
 
             var lenght = game.tetris.activeTetromino.Points.Length;
             var pivot = game.tetris.activeTetromino.Points[1];
@@ -103,6 +98,26 @@ namespace Tests
 
                 Assert.AreEqual(point[i].x, pivot.x - y);
                 Assert.AreEqual(point[i].y, pivot.y + x);
+            }
+        }
+        /// <summary>
+        /// Check if block moved to the floor when i press "M" button
+        /// </summary>
+        [TestMethod]
+        public void CheckIfBlockGoingFloor()
+        {
+            game.startPause_Click(null, EventArgs.Empty);
+
+            var lenght = game.tetris.activeTetromino.Points.Length;
+            Point[] point1 = game.tetris.activeTetromino.Points;
+
+            game.tetris.flor();
+
+            for (int i = 0; i < lenght; i++)
+            {
+                int boardHeight = game.tetris.Height;
+                int offset = boardHeight - point1[i].y;
+                Assert.AreEqual(offset + point1[i].y, 20);
             }
         }
     }
