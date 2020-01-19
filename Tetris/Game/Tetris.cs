@@ -38,6 +38,9 @@ namespace Game
             get => timer.Enabled;
         }
 
+        /// <summary>
+        /// Tetris class constructor, definition of height, width, timer. Calling the setup function.
+        /// </summary>
         public Tetris(int width, int height, TetrisEvent tetrisEvent)
         {
             this.Width = width;

@@ -6,9 +6,11 @@ using System.Text;
 namespace Game
 {
     public class Tetromino
-    {
-        public Point[] Points { get; private set; } // all squares in tetromino
-        public Color color; // color for all squares in this tetromino
+    {   /// <summary>
+        /// Define assignment color for all squares in this tetromino. 
+        /// </summary>
+        public Point[] Points { get; private set; } 
+        public Color color;
 
         public Tetromino(Point[] points, Color color)
         {
@@ -16,9 +18,13 @@ namespace Game
             this.color = color;
         }
 
+        /// <summary>
+        /// Method shifter each square by parameter X i Y.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
         public void offset(int x, int y)
         {
-            // each square shifted by x y
             for (int i = 0; i < Points.Length; i++)
             {
                 Point point = Points[i];
@@ -27,9 +33,11 @@ namespace Game
             }
         }
 
+        /// <summary>
+        /// Get back previous localization of each square.
+        /// </summary>
         public void undo()
         {
-            // restore the previous location of each square
             foreach (Point point in Points) point.undo();
         }
 
@@ -48,22 +56,30 @@ namespace Game
             }
         }
 
+        /// <summary>
+        /// Retrieve previous points from one current point.
+        /// </summary>
+        /// <returns>Return previous position each of square</returns>
         public Point[] getPreviousPosition()
         {
             Point[] previousPosition = new Point[Points.Length];
             for (int i = 0; i < Points.Length; i++)
             {
-                // collecting all previous square locations
+           
                 previousPosition[i] = Points[i].getPreviousPosition();
             }
             return previousPosition;
         }
 
+        /// <summary>
+        /// Collision detection with board edge (without top edge).
+        /// </summary>
+        /// <param name="maxX"></param>
+        /// <param name="maxY"></param>
         public bool collision(int maxX, int maxY)
         {
             foreach (Point point in Points)
             {
-                // collision detection with board edge (without top)
                 if (point.X > maxX - 1 || point.X < 0 || point.Y > maxY - 1) return true;
             }
             return false;

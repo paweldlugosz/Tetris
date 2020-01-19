@@ -36,6 +36,7 @@ namespace Game
         /// <summary>
         /// Defined a value for 'Color' and 'Used' variables when the row is filled.
         /// </summary>
+        /// <param name="field"></param>
         public void set(Field field)
         {
             Color = field.Color;

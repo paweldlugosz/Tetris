@@ -40,6 +40,8 @@ namespace Game
         /// <summary>
         /// Constructor of the "Point" class responsible for assigning new values ​​to X and Y and reset previous X and Y.
         /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
         public Point(int x, int y)
         {
             previousX = 0;
@@ -57,9 +59,7 @@ namespace Game
             y = previousY;
         }
 
-        /// <summary>
-        /// Method which returns the previous position in the document.
-        /// </summary>
+        /// <returns>Method which returns the previous position in the document.</returns>
         public Point getPreviousPosition()
         {
             return new Point(previousX, previousY);

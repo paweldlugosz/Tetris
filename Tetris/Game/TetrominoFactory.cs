@@ -6,7 +6,6 @@ namespace Game
     /// <summary>
     /// Class generating pseudo-randomness of numbers -> blocks.
     /// A class containing the definition of blocks used in the game, the definition of colors and a randomization mechanism.
-
     /// </summary>
     static class TetrominoFactory
     {
@@ -77,9 +76,9 @@ namespace Game
         };
 
         /// <summary>
-        /// Definition of creating a new block. 
-        /// Returned is an array with the points of the block (the points from which the blocks are built) and its color.
+        /// Definition of creating a new block.
         /// </summary> 
+        ///<returns> Returned is an array with the points of the block (the points from which the blocks are built) and its color. </returns>
         public static Tetromino getNewRandomTetromino()
         {
             int index = random.Next(0, tetrominos.Length);
