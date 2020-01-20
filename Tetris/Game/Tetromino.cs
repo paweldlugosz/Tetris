@@ -41,11 +41,16 @@ namespace Game
             foreach (Point point in Points) point.undo();
         }
 
+
+        /// <summary>
+        /// Main method responsible for rotating blocks.
+        /// Pivot point setting.
+        /// </summary>
         public void Rotate()
         {
-            Point pivot = Points[1]; // choosing the place of rotation
+            Point pivot = Points[1]; 
             
-            // rotation
+          
             foreach (Point point in Points)
             {
                 int x = point.X - pivot.X;
