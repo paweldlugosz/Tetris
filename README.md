@@ -22,11 +22,15 @@ Projekt semestralny na studia <br>
 <tr>
 	<td>Przyspieszenie opadającego klocka</td>	<td>S</td>
 </tr>
+<tr>
+	<td>Dodanie klocka na sam dół </td>	<td>M</td>
+</tr>
  <tr>
 	<td>Wstrzymanie gry </td>	<td>Spacja/Enter</td>
 </tr>
 </table>
 
 Punkty liczone są razy 100.
+Tetris jest podwójnie punktowany.
 
 # Pozostałe informacje zostały zamieszczone w dokumentacji dołączonej do aplikacji.
