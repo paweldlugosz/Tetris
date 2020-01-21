@@ -48,7 +48,6 @@ namespace WPF_Front
                 tetris.start();
                 btn.Content = "Pause Game";
             }
-
         }
 
         private void ResetBtn_Click(object sender, RoutedEventArgs e)
