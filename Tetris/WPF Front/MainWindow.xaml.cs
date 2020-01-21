@@ -69,12 +69,12 @@ namespace WPF_Front
                     Field field = tetris.Board[x, y];
                     if (field.Color == System.Drawing.Color.Transparent) continue;
 
-                    int rectSize = 30;
+                    int rectSize = 29;
                     Rectangle rect = new Rectangle();
                     rect.Fill = new SolidColorBrush(Color.FromRgb(field.Color.R, field.Color.G, field.Color.B));
                     rect.Width = rect.Height = rectSize;
-                    Canvas.SetLeft(rect, rectSize * x);
-                    Canvas.SetTop(rect, rectSize * y);
+                    Canvas.SetLeft(rect, (rectSize * x) + (1 * x));
+                    Canvas.SetTop(rect, (rectSize * y) + (1 * y));
                     game.Children.Add(rect);
                 }
             }
