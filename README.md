@@ -26,3 +26,7 @@ Projekt semestralny na studia <br>
 	<td>Wstrzymanie gry </td>	<td>Spacja/Enter</td>
 </tr>
 </table>
+
+Punkty liczone są razy 100.
+
+# Pozostałe informacje zostały zamieszczone w dokumentacji dołączonej do aplikacji.
