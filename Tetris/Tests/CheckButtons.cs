@@ -37,6 +37,9 @@ namespace Tests
                 throw new Exception("The text is not equal 'Pauza'");
         }
 
+        /// <summary>
+        /// Check if text on button is "Reset" when the game is running.
+        /// </summary>
         [TestMethod]
         public void CheckTextOnResetButton()
         {

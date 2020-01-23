@@ -1,0 +1,237 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Game</name>
+    </assembly>
+    <members>
+        <member name="T:Game.Field">
+            <summary>
+            This class (field) contains a game color describing field in the game and clear field.
+            </summary>
+        </member>
+        <member name="F:Game.Field.Color">
+            <summary>
+            Defined 'Color'and 'Used' variable.
+            </summary>
+        </member>
+        <member name="M:Game.Field.#ctor">
+            <summary>
+            Initialize type of color and variable.
+            Defined a constructor for the 'Field' class and setted value for 'Color' and 'Used' variables.
+            </summary>
+        </member>
+        <member name="M:Game.Field.clear">
+            <summary>
+            Field cleaning method in the game.
+            </summary>
+        </member>
+        <member name="M:Game.Field.set(Game.Field)">
+            <summary>
+            Defined a value for 'Color' and 'Used' variables when the row is filled.
+            </summary>
+            <param name="field"></param>
+        </member>
+        <member name="T:Game.Point">
+            <summary>
+            Define class Point; 
+            The "Point" class definition provides methods for setting values ​​for types X and Y
+            </summary>
+        </member>
+        <member name="P:Game.Point.X">
+            <summary>
+            Methods responsible for setting the X and Y variables.
+            </summary>
+        </member>
+        <member name="M:Game.Point.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Constructor of the "Point" class responsible for assigning new values ​​to X and Y and reset previous X and Y.
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="M:Game.Point.undo">
+            <summary>
+            Assigning previous values ​​to X and Y.
+            </summary>
+        </member>
+        <member name="M:Game.Point.getPreviousPosition">
+            <returns>Method which returns the previous position in the document.</returns>
+        </member>
+        <member name="M:Game.Point.Clone">
+            <summary>
+            The method clones the 'Point' class (returns the 'Point' class with X and Y parameters).
+            </summary>
+            <returns>Returns another copy of data. Returns new Point.</returns>
+        </member>
+        <member name="T:Game.Tetris">
+            <summary>
+             Instance definition Board, Tetromino and other elements.
+            </summary>
+        </member>
+        <member name="M:Game.Tetris.#ctor(System.Int32,System.Int32,Game.TetrisEvent)">
+            <summary>
+            Tetris class constructor, definition of height, width, timer. Calling the setup function.
+            </summary>
+        </member>
+        <member name="M:Game.Tetris.start">
+            <summary>
+            Start the game with the button'Start Game'.
+            </summary>
+        </member>
+        <member name="M:Game.Tetris.pause">
+            <summary>
+            The mechanism responsible for the possibility of pausing the game.
+            </summary>
+        </member>
+        <member name="M:Game.Tetris.setUp">
+            <summary>
+            Define entry conditions.
+            Setting up the game, drawing a field, possibility to start the game.
+            </summary>
+        </member>
+        <member name="M:Game.Tetris.moveLeft">
+            <summary>
+            Function responsible for rotating the block to the left.
+            </summary>
+        </member>
+        <member name="M:Game.Tetris.moveRight">
+            <summary>
+            Function responsible for movement the block to the right.
+            </summary>
+        </member>
+        <member name="M:Game.Tetris.moveDown">
+            <summary>
+            Function responsible for movement the block to down.
+            </summary>
+        </member>
+        <member name="M:Game.Tetris.flor">
+            <summary>
+            The "flor ()" function, which adds new tetromino and moves it down.
+            </summary>
+        </member>
+        <member name="M:Game.Tetris.offset(System.Int32,System.Int32)">
+            <summary>
+            Move the active block with the 'X' and 'Y' parameters.
+            Checks for a collision.If a collision appear, the block returns to the previous position
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns>true if offset succeeded, false if failed</returns>
+        </member>
+        <member name="M:Game.Tetris.rotate">
+            <summary>
+            Function is a function of turning the block, which at the same time checks whether the application is running. 
+            Checks if we don't leave the block outside the board.
+            </summary>
+        </member>
+        <member name="M:Game.Tetris.onTimeEvent(System.Object,System.Timers.ElapsedEventArgs)">
+            <summary>
+            Reaction to the M button ( moving the block down ).
+            If the offset has such parameters (the block is at the bottom) then draw a new one.
+            </summary>
+            <param name="source"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Game.Tetris.checkLines">
+            <summary>
+            Checking if the blocks fill the lines in the board area. If they are full it starts the function of removing these lines from the board.
+            </summary>
+        </member>
+        <member name="M:Game.Tetris.moveLines(System.Int32)">
+            <summary>
+             Shift lines if full and clear them.
+            </summary>
+            <param name="row"></param>
+        </member>
+        <member name="M:Game.Tetris.drawTetrominoOnBoard">
+            <summary>
+            Displaying the first and each block on the board after starting the game.
+            </summary>
+        </member>
+        <member name="M:Game.Tetris.setTetrominoOnBoard(System.Boolean)">
+            <summary>
+            Setting first and each next block on the board.
+            </summary>
+            <param name="used"></param>
+        </member>
+        <member name="M:Game.Tetris.clear(Game.Point[])">
+            <summary>
+            Cleaning the board. Collect each point and sets it so that it is not used.Removes color.
+            </summary>
+            <param name="points"></param>
+        </member>
+        <member name="M:Game.Tetris.setNewActiveTetromino">
+            <summary>
+             The function responsible for creating a new block and displaying it on the board.
+            </summary>
+        </member>
+        <member name="M:Game.Tetris.collision">
+            <summary>
+             A mechanism that limits the possibility of moving blocks outside the board.
+            </summary>
+        </member>
+        <member name="T:Game.TetrisEvent">
+            <summary>
+            Application interface with reference in the code where it is used.
+            </summary>
+        </member>
+        <member name="P:Game.Tetromino.Points">
+            <summary>
+            Define assignment color for all squares in this tetromino. 
+            </summary>
+        </member>
+        <member name="M:Game.Tetromino.offset(System.Int32,System.Int32)">
+            <summary>
+            Method shifter each square by parameter X i Y.
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="M:Game.Tetromino.undo">
+            <summary>
+            Get back previous localization of each square.
+            </summary>
+        </member>
+        <member name="M:Game.Tetromino.Rotate">
+            <summary>
+            Main method responsible for rotating blocks.
+            Pivot point setting.
+            </summary>
+        </member>
+        <member name="M:Game.Tetromino.getPreviousPosition">
+            <summary>
+            Retrieve previous points from one current point.
+            </summary>
+            <returns>Return previous position each of square</returns>
+        </member>
+        <member name="M:Game.Tetromino.collision(System.Int32,System.Int32)">
+            <summary>
+            Collision detection with board edge (without top edge).
+            </summary>
+            <param name="maxX"></param>
+            <param name="maxY"></param>
+        </member>
+        <member name="T:Game.TetrominoFactory">
+            <summary>
+            Class generating pseudo-randomness of numbers -> blocks.
+            A class containing the definition of blocks used in the game, the definition of colors and a randomization mechanism.
+            </summary>
+        </member>
+        <member name="F:Game.TetrominoFactory.tetrominos">
+            <summary>
+            Definition of each blocks.
+            </summary>
+        </member>
+        <member name="F:Game.TetrominoFactory.colors">
+            <summary> 
+            Definition of block colors used in the application.
+            </summary>
+        </member>
+        <member name="M:Game.TetrominoFactory.getNewRandomTetromino">
+             <summary>
+             Definition of creating a new block.
+             </summary> 
+            <returns> Returned is an array with the points of the block (the points from which the blocks are built) and its color. </returns>
+        </member>
+    </members>
+</doc>
