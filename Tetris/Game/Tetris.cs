@@ -124,7 +124,7 @@ namespace Game
         }
 
         /// <summary>
-        /// The "flor ()" function, which adds new tetromino and moves it down.
+        /// The "flor ()" function, which tetromino moves it down and create new blocks.
         /// </summary>
         public void flor()
         {
