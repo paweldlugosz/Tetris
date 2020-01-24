@@ -11,7 +11,7 @@ namespace Tests
         /// <summary>
         /// Check if text on button is "Start" when the game is not running
         /// </summary>
-       
+       [TestMethod]
         public void CheckTextOnButtonWhenGameIsNotStarted()
         {
             string textOnButton = game.startPause.Text;

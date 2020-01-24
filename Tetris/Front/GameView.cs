@@ -20,7 +20,7 @@ namespace Front
         public SolidBrush brush;
 
         /// <summary>
-        /// Declaration of colors for components - buttons. Giving the buttons a gray color.
+        /// Initialization of reading and tetris view.
         /// </summary>
         public GameView()
         {
@@ -51,7 +51,7 @@ namespace Front
             }
         }
         /// <summary>
-        /// Defining the appearance of the board.Its dimensions, color etc.
+        /// Defining the appearance of the board. Its dimensions, color etc.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
