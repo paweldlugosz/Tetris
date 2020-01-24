@@ -9,7 +9,7 @@ using System.Windows.Media;
 namespace WPF_Front
 {
     /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
+    /// Interaction logic for the MainWindow.xaml class
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -21,6 +21,11 @@ namespace WPF_Front
             this.KeyDown += new KeyEventHandler(MainWindow_KeyDown);
         }
 
+        /// <summary>
+        /// Moving or rotating the brick using the A, D, S, W, M buttons.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void MainWindow_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.Key)
@@ -33,6 +38,12 @@ namespace WPF_Front
             }
         }
 
+        /// <summary>
+        /// Declaration of button changes - after starting the game by pressing "Start Game"
+        /// button changes the word "Start" to "Pause".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void StartBtn_Click(object sender, RoutedEventArgs e)
         {
             game.Focus(); 
@@ -50,12 +61,20 @@ namespace WPF_Front
             }
         }
 
+        /// <summary>
+        /// Button reset/
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ResetBtn_Click(object sender, RoutedEventArgs e)
         {
             tetris.setUp();
             startBtn.Content = "Start Game";
         }
 
+        /// <summary>
+        /// Rendering.
+        /// </summary>
         private void render()
         {
             if (tetris == null) return;
@@ -80,10 +99,15 @@ namespace WPF_Front
             }
         }
 
+      
         class TetrisEventImp : TetrisEvent
         {
             MainWindow mainWindow;
 
+            /// <summary>
+            ///  Constructor for the TetrisEcentImp class.
+            /// </summary>
+            /// <param name="game"></param>
             public TetrisEventImp(MainWindow game)
             {
                 this.mainWindow = game;
@@ -97,11 +121,19 @@ namespace WPF_Front
                 }));
             }
 
+            /// <summary>
+            /// Displays a window with information after the game.
+            /// </summary>
             public void onGameOver()
             {
                 MessageBox.Show("Przegrana");
             }
 
+            /// <summary>
+            /// Current display of the sum of points scored.
+            /// </summary>
+            /// <param name="points"></param>
+            /// <param name="tetris"></param>
             public void onPointsChange(int points, int tetris)
             {
                 mainWindow.scoreTxt.Dispatcher.Invoke(new Action(() =>

@@ -11,11 +11,17 @@ using System.Windows.Forms;
 
 namespace Front
 {
+    /// <summary>
+    /// Declaration of appearance of the game.
+    /// </summary>
     public partial class GameView : Form
     {
         public Tetris tetris;
         public SolidBrush brush;
 
+        /// <summary>
+        /// Declaration of colors for components - buttons. Giving the buttons a gray color.
+        /// </summary>
         public GameView()
         {
             InitializeComponent();
@@ -24,6 +30,12 @@ namespace Front
             brush = new SolidBrush(Color.Gray);
         }
 
+        /// <summary>
+        /// Declaration of buttons inscription change.
+        /// After starting the game by pressing "Start" the button changes the word "Start" to "Pause".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void startPause_Click(object sender, EventArgs e)
         {
             game.Focus();
@@ -38,7 +50,11 @@ namespace Front
                 startPause.Text = "Pauza";
             }
         }
-
+        /// <summary>
+        /// Defining the appearance of the board.Its dimensions, color etc.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void game_Paint(object sender, PaintEventArgs e)
         {
             int rectSize = 30;
@@ -53,10 +69,15 @@ namespace Front
             }
         }
 
+        
         public class TetrisEventImp : TetrisEvent
         {
             GameView gameView;
 
+            /// <summary>
+            /// Constructor for the TetrisEcentImp class.
+            /// </summary>
+            /// <param name="game"></param>
             public TetrisEventImp(GameView game)
             {
                 this.gameView = game;
@@ -67,6 +88,9 @@ namespace Front
                 gameView.game.Invalidate();
             }
 
+            /// <summary>
+            /// Displays a window with information after the game.
+            /// </summary>
             public void onGameOver()
             {
                 MessageBox.Show("Przegrana");
@@ -77,7 +101,11 @@ namespace Front
                 //gameView.lines.Text = points.ToString();
             }
         }
-
+        /// <summary>
+        /// Resetting buttons.Setting them up.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void reset_Click(object sender, EventArgs e)
         {
             tetris.setUp();
