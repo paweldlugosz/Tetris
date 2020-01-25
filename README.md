@@ -1,6 +1,9 @@
 # Tetris
 Projekt semestralny na studia <br>
  <img src="https://github.com/paweldlugosz/Tetris/blob/master/tetris.png" alt="ScreenShot" style="max-width:100%;">
+ 
+# Opis
+Tetris – komputerowa gra logiczna stworzona przez Aleksieja Pażytnowa i jego współpracowników, Dimitrija Pawłowskiego i Wadima Geriasimowa[1]. Pojawiła się na rynku po raz pierwszy 6 czerwca 1984 roku w Związku Radzieckim.
 
 # Sterowanie
 <thead>
