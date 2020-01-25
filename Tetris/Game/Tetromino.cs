@@ -5,13 +5,25 @@ using System.Text;
 
 namespace Game
 {
+    /// <summary>
+    /// A class that provides colorful blocks
+    /// </summary>
     public class Tetromino
     {   /// <summary>
         /// Define assignment color for all squares in this tetromino. 
         /// </summary>
         public Point[] Points { get; private set; } 
+
+        /// <summary>
+        /// Color
+        /// </summary>
         public Color color;
 
+        /// <summary>
+        /// Builder assigning point list and color
+        /// </summary>
+        /// <param name="points">List of points</param>
+        /// <param name="color">Color</param>
         public Tetromino(Point[] points, Color color)
         {
             this.Points = points;

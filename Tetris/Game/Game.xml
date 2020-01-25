@@ -14,6 +14,11 @@
             Defined 'Color'and 'Used' variable.
             </summary>
         </member>
+        <member name="F:Game.Field.Used">
+            <summary>
+            Field usage status
+            </summary>
+        </member>
         <member name="M:Game.Field.#ctor">
             <summary>
             Initialize type of color and variable.
@@ -37,9 +42,34 @@
             The "Point" class definition provides methods for setting values ​​for types X and Y
             </summary>
         </member>
+        <member name="F:Game.Point.previousX">
+            <summary>
+            Previous X value
+            </summary>
+        </member>
+        <member name="F:Game.Point.previousY">
+            <summary>
+            Previous Y value
+            </summary>
+        </member>
+        <member name="F:Game.Point.x">
+            <summary>
+            Current x value
+            </summary>
+        </member>
+        <member name="F:Game.Point.y">
+            <summary>
+            Current x value
+            </summary>
+        </member>
         <member name="P:Game.Point.X">
             <summary>
-            Methods responsible for setting the X and Y variables.
+            Method responsible for setting the X variables.
+            </summary>
+        </member>
+        <member name="P:Game.Point.Y">
+            <summary>
+            Method responsible for setting the Y variables.
             </summary>
         </member>
         <member name="M:Game.Point.#ctor(System.Int32,System.Int32)">
@@ -66,6 +96,46 @@
         <member name="T:Game.Tetris">
             <summary>
              Instance definition Board, Tetromino and other elements.
+            </summary>
+        </member>
+        <member name="F:Game.Tetris.Width">
+            <summary>
+            The number of blocks horizontally
+            </summary>
+        </member>
+        <member name="F:Game.Tetris.Height">
+            <summary>
+            Number of blocks vertically
+            </summary>
+        </member>
+        <member name="F:Game.Tetris.Board">
+            <summary>
+            Two-dimensional game board
+            </summary>
+        </member>
+        <member name="F:Game.Tetris.activeTetromino">
+            <summary>
+            Active moving Tetromino
+            </summary>
+        </member>
+        <member name="F:Game.Tetris.timer">
+            <summary>
+            Timer responsible for progress in the game
+            </summary>
+        </member>
+        <member name="P:Game.Tetris.DeletedLines">
+            <summary>
+            Number of all lines removed
+            </summary>
+        </member>
+        <member name="P:Game.Tetris.TetrisCounter">
+            <summary>
+            Number of tetris gained
+            </summary>
+        </member>
+        <member name="P:Game.Tetris.Running">
+            <summary>
+            Game launch status
             </summary>
         </member>
         <member name="M:Game.Tetris.#ctor(System.Int32,System.Int32,Game.TetrisEvent)">
@@ -106,7 +176,7 @@
         </member>
         <member name="M:Game.Tetris.flor">
             <summary>
-            The "flor ()" function, which adds new tetromino and moves it down.
+            The "flor ()" function, which tetromino moves it down and create new blocks.
             </summary>
         </member>
         <member name="M:Game.Tetris.offset(System.Int32,System.Int32)">
@@ -175,10 +245,44 @@
             Application interface with reference in the code where it is used.
             </summary>
         </member>
+        <member name="M:Game.TetrisEvent.onBlockChange">
+            <summary>
+            The method is called after changing the arrangement of elements
+            </summary>
+        </member>
+        <member name="M:Game.TetrisEvent.onPointsChange(System.Int32,System.Int32)">
+            <summary>
+            The method is called after changing points
+            </summary>
+            <param name="lines">Number of all lines removed</param>
+            <param name="tetris">Number of tetris gained</param>
+        </member>
+        <member name="M:Game.TetrisEvent.onGameOver">
+            <summary>
+            The method is called after game over
+            </summary>
+        </member>
+        <member name="T:Game.Tetromino">
+            <summary>
+            A class that provides colorful blocks
+            </summary>
+        </member>
         <member name="P:Game.Tetromino.Points">
             <summary>
             Define assignment color for all squares in this tetromino. 
             </summary>
+        </member>
+        <member name="F:Game.Tetromino.color">
+            <summary>
+            Color
+            </summary>
+        </member>
+        <member name="M:Game.Tetromino.#ctor(Game.Point[],System.Drawing.Color)">
+            <summary>
+            Builder assigning point list and color
+            </summary>
+            <param name="points">List of points</param>
+            <param name="color">Color</param>
         </member>
         <member name="M:Game.Tetromino.offset(System.Int32,System.Int32)">
             <summary>

@@ -12,6 +12,10 @@ namespace Game
         /// Defined 'Color'and 'Used' variable.
         /// </summary>
         public Color Color;
+
+        /// <summary>
+        /// Field usage status
+        /// </summary>
         public bool Used;
 
         /// <summary>

@@ -13,6 +13,9 @@ namespace WPF_Front
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Game object
+        /// </summary>
         public Tetris tetris;
         public MainWindow()
         {

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WPF_Front"
         mc:Ignorable="d"
         Title="MainWindow" SizeToContent="WidthAndHeight"  MinHeight="670" MinWidth="500"
-        Background="#c7c7c7"
+        Background="#c7c7c7" ResizeMode="NoResize"
         >
 
     <Grid x:Name="grid" Width="465" Height="630" HorizontalAlignment="Center">

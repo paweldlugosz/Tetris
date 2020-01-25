@@ -10,13 +10,29 @@ namespace Game
     /// </summary>
     public class Point
     {
-        public int previousX, previousY;
-        public int x, y;
+        /// <summary>
+        /// Previous X value
+        /// </summary>
+        public int previousX;
 
         /// <summary>
-        /// Methods responsible for setting the X and Y variables.
+        /// Previous Y value
         /// </summary>
+        public int previousY;
 
+        /// <summary>
+        /// Current x value
+        /// </summary>
+        public int x;
+
+        /// <summary>
+        /// Current x value
+        /// </summary>
+        public int y;
+
+        /// <summary>
+        /// Method responsible for setting the X variables.
+        /// </summary>
         public int X
         {
             get => x;
@@ -27,6 +43,9 @@ namespace Game
             }
         }
 
+        /// <summary>
+        /// Method responsible for setting the Y variables.
+        /// </summary>
         public int Y
         {
             get => y;

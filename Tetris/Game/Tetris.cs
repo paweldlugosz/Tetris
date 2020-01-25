@@ -9,13 +9,39 @@ namespace Game
  /// </summary>
     public class Tetris
     {
-        public readonly int Width, Height;
+        /// <summary>
+        /// The number of blocks horizontally
+        /// </summary>
+        public readonly int Width;
+
+        /// <summary>
+        /// Number of blocks vertically
+        /// </summary>
+        public readonly int Height;
+
+        /// <summary>
+        /// Two-dimensional game board
+        /// </summary>
         public Field[,] Board;
+
+        /// <summary>
+        /// Active moving Tetromino
+        /// </summary>
         public Tetromino activeTetromino;
+
+        /// <summary>
+        /// Timer responsible for progress in the game
+        /// </summary>
         private System.Timers.Timer timer;
+
+
         private bool newGame, gameOver;
         private TetrisEvent tetrisEvent;
         private int dl, tc;
+
+        /// <summary>
+        /// Number of all lines removed
+        /// </summary>
         public int DeletedLines
         {
             get => dl;
@@ -25,6 +51,10 @@ namespace Game
                 tetrisEvent.onPointsChange(dl, tc);
             }
         }
+
+        /// <summary>
+        /// Number of tetris gained
+        /// </summary>
         public int TetrisCounter
         {
             get => tc;
@@ -35,6 +65,9 @@ namespace Game
             }
         }
 
+        /// <summary>
+        /// Game launch status
+        /// </summary>
         public bool Running
         {
             get => timer.Enabled;
@@ -264,7 +297,7 @@ namespace Game
         {
             foreach (Point point in activeTetromino.Points)
             {
-                if (point.Y < 0 /**|| point.X < 0 || point.Y >= Height || point.X >= Width**/) continue;
+                if (point.Y < 0) continue;
                 Field field = Board[point.X, point.Y];
                 field.Used = used;
                 field.Color = activeTetromino.color;
